@@ -181,6 +181,7 @@ st.sidebar.markdown("""
 5. **View** results in the right panel:
    - MText data in the upper window
    - Chairs data in the lower window
+6. **Download** by hovering the mouse over the upper right corner of each Table
 """)
 
 #st.sidebar.header("Requirements")
