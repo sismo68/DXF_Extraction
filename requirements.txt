@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Aug 13 12:25:19 2025
-
-@author: Esneyder Montoya, PhD, PE
-"""
 streamlit
 pandas
 ezdxf
