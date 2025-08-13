@@ -5,6 +5,8 @@ import sys
 import os
 from pathlib import Path
 import tempfile
+import dxf_extraction
+from dxf_extraction import process_dxf
 
 # Try to import ezdxf for layer extraction
 try:
