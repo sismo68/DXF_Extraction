@@ -183,14 +183,14 @@ st.sidebar.markdown("""
    - Chairs data in the lower window
 """)
 
-st.sidebar.header("Requirements")
-st.sidebar.markdown("""
-- `dxf_extraction.py` file in the same directory
-- `ezdxf` library installed
-- DXF file with valid layers
-""")
+#st.sidebar.header("Requirements")
+#st.sidebar.markdown("""
+#- `dxf_extraction.py` file in the same directory
+#- `ezdxf` library installed
+#- DXF file with valid layers
+#""")
 
 
 # Footer
 st.markdown("---")
-st.markdown("DXF PT Chair Extraction - R&DC USA Copyright 2025")
+st.markdown("DXF Post-tensioned Cable Chair Extraction - R&DC USA Copyright 2025")
