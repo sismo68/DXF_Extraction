@@ -2,7 +2,7 @@
 """
 Created on Wed Aug 13 10:50:49 2025
 
-@author: User
+@author: Esneyder Montoya, PhD, PE
 """
 
 import pandas as pd
@@ -175,7 +175,7 @@ def process_dxf(dxf_file_path, selected_layer, z_offset, output_dxf_name):
         if x >= 25:
             hc = round(float(Fraction(round((x / 25 - float(z_offset))*4,0)/4)),2)   # ok.
         elif x >= 10:
-            hc = '0.75 Base'
+            hc = 0.75
         #else: hc = (round(x,1))
         else: hc = 0
         return hc
