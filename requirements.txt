@@ -8,10 +8,8 @@ streamlit
 pandas
 ezdxf
 collections
-math
 fractions
 subprocess
 sys
 os
-pathlib
 tempfile
