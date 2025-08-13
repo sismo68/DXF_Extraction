@@ -194,15 +194,19 @@ def process_dxf(dxf_file_path, selected_layer, z_offset, output_dxf_name):
         denominator = fraction_object.denominator
         
         if remainder_numerator == 0:
-            print(f"Whole number: {whole_number}")
-            
-            return whole_number
+
+            if whole_number == 0:
+                return " "
+            else: return (f"{whole_number}")
+                
+            print (f"{remainder_numerator}/{denominator}")
             
         else:
-            print(f"Whole number: {whole_number}")
-            print(f"Fraction: {remainder_numerator}/{denominator}")
-            
-            return str(whole_number) + str(remainder_numerator/denominator)
+
+            if whole_number == 0:
+                return (f"{remainder_numerator}/{denominator}")
+            else: return  (f"{whole_number} {remainder_numerator}/{denominator}")
+
     
     
     
@@ -399,6 +403,14 @@ def process_dxf(dxf_file_path, selected_layer, z_offset, output_dxf_name):
     
     mtext_df['trueColor'] = mtext_df.chairColor.apply(ed.colors.rgb2int)
     
+    
+    
+    
+    mtext_df['Chairs_Fraction'] =mtext_df['Chairs'].apply(convert_to_mixed_number)
+    
+    
+    
+    
     # To delete entities from a layer
     
     # Specify the layer name from which to delete MTEXT entities
@@ -425,7 +437,7 @@ def process_dxf(dxf_file_path, selected_layer, z_offset, output_dxf_name):
     # Loop through each row in the DataFrame and add text
     for index, row in mtext_df.iterrows():
         # Extract text and coordinates
-        text_content = str(row['Chairs'])
+        text_content = str(row['Chairs_Fraction'])
         colorRGB = row['chairColor']
         colorHex = row['chairHexColor']
     #    true_Color = row['trueColor']
@@ -441,14 +453,16 @@ def process_dxf(dxf_file_path, selected_layer, z_offset, output_dxf_name):
             # If you need to set color, include it in dxfattribs
             dxfattribs={
                 'layer': new_layer_name,
-                'height': 0.125,  # Text height - adjust as needed
+                'height': 0.100,  # Text height - adjust as needed
                 'style': 'STANDARD',  # Text style - adjust as needed
                 'insert': (x_coord, y_coord, z_coord),  # Specify position directly here
+    #            'set_elevation' : 'MIDDLE',
     #            'halign' : 4,
     #            'rgb': ed.colors.RGB(colorRGB[0], colorRGB[1], colorRGB[2]) # Uncomment if you want to use the color from DataFrame
                 # Or use: 'true_color': text.dxf.true_color  # If this is what you intended
-            },
-        )
+            }, 
+        )     # .set_align_enum(align=text_content.Alignment.LEFT)
+        
     
     # Save the modified DXF file
     doc.saveas(output_dxf_name)
@@ -462,9 +476,15 @@ def process_dxf(dxf_file_path, selected_layer, z_offset, output_dxf_name):
     chairs_df = chairs_df.drop(0)
     chairs_df.index.name = 'h_chair [in]'
     print("\nCounts for 'chairs':\n", chair_counts)
-    chairs_df.reset_index()
+    chairs_df = chairs_df.reset_index()
+    
+    chairs_df.rename(columns={'index': 'h_chair [in]'}, inplace=True)
     
     chairs_df['h_chairs_inches'] =chairs_df['h_chair [in]'].apply(convert_to_mixed_number)
+    
+    chairs_df.drop(['h_chair [in]'], axis = 1, inplace = True)
+    
+    chairs_df.rename(columns={'h_chairs_inches': 'h_chair [in]'}, inplace=True)
     
     # Save the chairs and count in an excel file
     
