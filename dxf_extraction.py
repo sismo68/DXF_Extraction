@@ -462,7 +462,7 @@ def process_dxf(dxf_file_path, selected_layer, z_offset, output_dxf_name):
     chairs_df = chairs_df.drop(0)
     chairs_df.index.name = 'h_chair [in]'
     print("\nCounts for 'chairs':\n", chair_counts)
-    
+    chairs_df.reset_index()
     
     chairs_df['h_chairs_inches'] =chairs_df['h_chair [in]'].apply(convert_to_mixed_number)
     
