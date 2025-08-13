@@ -482,9 +482,9 @@ def process_dxf(dxf_file_path, selected_layer, z_offset, output_dxf_name):
     
     chairs_df['h_chairs_inches'] =chairs_df['h_chair [in]'].apply(convert_to_mixed_number)
     
-    chairs_df.drop(['h_chair [in]'], axis = 1, inplace = True)
+    # chairs_df.drop(['h_chair [in]'], axis = 1, inplace = True)
     
-    chairs_df.rename(columns={'h_chairs_inches': 'h_chair [in]'}, inplace=True)
+    # chairs_df.rename(columns={'h_chairs_inches': 'h_chair [in]'}, inplace=True)
     
     # Save the chairs and count in an excel file
     
@@ -492,4 +492,5 @@ def process_dxf(dxf_file_path, selected_layer, z_offset, output_dxf_name):
     
     chairs_df.to_excel(Excel_file, sheet_name='Counts')
     
+
     return mtext_df , chairs_df
