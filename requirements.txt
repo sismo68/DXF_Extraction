@@ -1,9 +1,3 @@
 streamlit
 pandas
 ezdxf
-collections
-fractions
-subprocess
-sys
-os
-tempfile
