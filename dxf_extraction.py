@@ -184,6 +184,28 @@ def process_dxf(dxf_file_path, selected_layer, z_offset, output_dxf_name):
     mtext_df['Chairs'] = mtext_df['text'].apply(chair)
     
     
+    def convert_to_mixed_number(x):
+
+        #decimal_value = 5.25
+        fraction_object = Fraction(x)
+        
+        whole_number = fraction_object.numerator // fraction_object.denominator
+        remainder_numerator = fraction_object.numerator % fraction_object.denominator
+        denominator = fraction_object.denominator
+        
+        if remainder_numerator == 0:
+            print(f"Whole number: {whole_number}")
+            
+            return whole_number
+            
+        else:
+            print(f"Whole number: {whole_number}")
+            print(f"Fraction: {remainder_numerator}/{denominator}")
+            
+            return str(whole_number) + str(remainder_numerator/denominator)
+    
+    
+    
     def assign_chair_colors(chair_height):
         if not isinstance(chair_height, (int, float)) or chair_height == " ":
             return (125, 125, 125)  # Default gray for missing/invalid values
@@ -441,6 +463,8 @@ def process_dxf(dxf_file_path, selected_layer, z_offset, output_dxf_name):
     chairs_df.index.name = 'h_chair [in]'
     print("\nCounts for 'chairs':\n", chair_counts)
     
+    
+    chairs_df['h_chairs_inches'] =chairs_df['h_chair [in]'].apply(convert_to_mixed_number)
     
     # Save the chairs and count in an excel file
     
