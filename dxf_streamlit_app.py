@@ -33,7 +33,7 @@ def run_dxf_extraction(dxf_file_path, selected_layer, z_offset, output_dxf_name)
     """Execute the dxf_extraction.py script and return the dataframes"""
     try:
         # Check if dxf_extraction.py exists
-        if not os.path.exists("C:/Users/User/cad/dxf_extraction.py"):
+        if not os.path.exists("dxf_extraction.py"):
             st.error("dxf_extraction.py file not found in the current directory")
             return None, None, None
         
