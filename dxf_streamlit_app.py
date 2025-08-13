@@ -77,7 +77,7 @@ def run_dxf_extraction(dxf_file_path, selected_layer, z_offset, output_dxf_name)
         return None, None, None
 
 # Streamlit App Layout
-st.set_page_config(page_title="DXF File Analyzer", layout="wide")
+st.set_page_config(page_title="Post-tensioned Cable chairs extractor from DXF files ", layout="wide")
 
 st.title("DXF File Analyzer")
 
