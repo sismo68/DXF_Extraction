@@ -458,7 +458,8 @@ def process_dxf(dxf_file_path, selected_layer, z_offset, output_dxf_name):
                 'insert': (x_coord, y_coord, z_coord),  # Specify position directly here
     #            'set_elevation' : 'MIDDLE',
     #            'halign' : 4,
-                 'rgb': ed.colors.RGB(colorRGB[0], colorRGB[1], colorRGB[2]) # Uncomment if you want to use the color from DataFrame
+                entity.rgb = (255, 128, 16)
+                 'rgb': red.colors.RGB(colorRGB[0], colorRGB[1], colorRGB[2]) # Uncomment if you want to use the color from DataFrame
      #           'true_color': text.dxf.true_color  # If this is what you intended
             }, 
         )     # .set_align_enum(align=text_content.Alignment.LEFT)
@@ -494,6 +495,7 @@ def process_dxf(dxf_file_path, selected_layer, z_offset, output_dxf_name):
     
 
     return mtext_df , chairs_df
+
 
 
 
