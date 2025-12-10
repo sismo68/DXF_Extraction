@@ -446,7 +446,7 @@ def process_dxf(dxf_file_path, selected_layer, z_offset, output_dxf_name):
         z_coord = row['z']
    #     text.dxf.true_color = colors.rgb2int((true_Color[0], true_Color[1], true_Color[2]))
         # r, g, b = colors.int2rgb(text.dxf.true_color)
-        text.rgb = (colorRGB[0], colorRGB[1], colorRGB[2])
+        Mtext.rgb = (colorRGB[0], colorRGB[1], colorRGB[2])
        
         # Add text entity to the new layer with position directly specified
         # Note: Fixed the syntax error by properly organizing arguments
@@ -502,6 +502,7 @@ def process_dxf(dxf_file_path, selected_layer, z_offset, output_dxf_name):
     
 
     return mtext_df , chairs_df
+
 
 
 
