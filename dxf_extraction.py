@@ -440,11 +440,11 @@ def process_dxf(dxf_file_path, selected_layer, z_offset, output_dxf_name):
         text_content = str(row['Chairs_Fraction'])
         colorRGB = row['chairColor']
         colorHex = row['chairHexColor']
-    #    true_Color = row['trueColor']
+        true_Color = row['trueColor']
         x_coord = row['x']
         y_coord = row['y']
         z_coord = row['z']
-        text.dxf.true_color = colors.rgb2int((mtext_df.trueColor[0], mtext_df.trueColor[1], mtext_df.trueColor[2]))
+        text.dxf.true_color = colors.rgb2int((true_Color[0], true_Color[1], true_Color[2]))
         # r, g, b = colors.int2rgb(text.dxf.true_color)
     
         # Add text entity to the new layer with position directly specified
@@ -501,6 +501,7 @@ def process_dxf(dxf_file_path, selected_layer, z_offset, output_dxf_name):
     
 
     return mtext_df , chairs_df
+
 
 
 
