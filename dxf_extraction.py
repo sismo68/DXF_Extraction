@@ -444,7 +444,7 @@ def process_dxf(dxf_file_path, selected_layer, z_offset, output_dxf_name):
         x_coord = row['x']
         y_coord = row['y']
         z_coord = row['z']
-        text.dxf.true_color = colors.rgb2int((trueColor[0], trueColor[1], trueColor[2]))
+        text.dxf.true_color = colors.rgb2int((mtext_df.trueColor[0], mtext_df.trueColor[1], mtext_df.trueColor[2]))
         # r, g, b = colors.int2rgb(text.dxf.true_color)
     
         # Add text entity to the new layer with position directly specified
@@ -501,6 +501,7 @@ def process_dxf(dxf_file_path, selected_layer, z_offset, output_dxf_name):
     
 
     return mtext_df , chairs_df
+
 
 
 
