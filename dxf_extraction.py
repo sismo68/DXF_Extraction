@@ -444,6 +444,8 @@ def process_dxf(dxf_file_path, selected_layer, z_offset, output_dxf_name):
         x_coord = row['x']
         y_coord = row['y']
         z_coord = row['z']
+        text.dxf.true_color = colors.rgb2int((colorHex[0], colorHex[1], colorHex[2]))
+        # r, g, b = colors.int2rgb(text.dxf.true_color)
     
         # Add text entity to the new layer with position directly specified
         # Note: Fixed the syntax error by properly organizing arguments
@@ -451,8 +453,7 @@ def process_dxf(dxf_file_path, selected_layer, z_offset, output_dxf_name):
             text_content,  # Positional argument first
             # text.dxf.true_color removed or should be part of dxfattribs
             # If you need to set color, include it in dxfattribs
-            text.dxf.true_color = colors.rgb2int((colorHex[0], colorHex[1], colorHex[2]))
-            r, g, b = colors.int2rgb(text.dxf.true_color)
+            
             dxfattribs={
                 'layer': new_layer_name,
                 'height': 0.100,  # Text height - adjust as needed
@@ -500,6 +501,7 @@ def process_dxf(dxf_file_path, selected_layer, z_offset, output_dxf_name):
     
 
     return mtext_df , chairs_df
+
 
 
 
