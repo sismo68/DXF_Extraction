@@ -194,4 +194,4 @@ st.sidebar.markdown("""
 
 # Footer
 st.markdown("---")
-st.markdown("DXF Post-tensioned Cable Chair Extraction - R&DC USA Copyright 2025")
+st.markdown("DXF Post-tensioned Cable Chair Extraction - R&DC USA Copyright 2026")
